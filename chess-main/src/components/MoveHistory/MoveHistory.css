@@ -1,0 +1,21 @@
+.move-history {
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ddd;
+    max-height: 300px;
+    overflow-y: auto;
+    font-family: monospace;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  .move-history h3 {
+    margin-top: 0;
+  }
+  .move-history ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  .move-history li {
+    padding: 2px 0;
+  }
+  

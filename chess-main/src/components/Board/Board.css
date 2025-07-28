@@ -1,0 +1,75 @@
+:root {
+  --tile-size: 60px;
+  --light-tile: #f0d9b5;
+  --dark-tile: #b58863;
+  --highlight: rgba(32, 6, 6, 0.15); 
+  --check: rgba(255, 0, 0, 0.4);
+}
+
+.board {
+  display: grid;
+  position: relative;
+  grid-template-columns: calc(0.25 * var(--tile-size)) calc(8 * var(--tile-size));
+  margin: 0 auto;
+  border: 2px solid #444;
+}
+
+.board-container {
+  position: relative;
+  width: calc(8 * var(--tile-size));
+  height: calc(8 * var(--tile-size));
+}
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(8, var(--tile-size));
+  grid-template-rows: repeat(8, var(--tile-size));
+  width: calc(8 * var(--tile-size));
+  height: calc(8 * var(--tile-size));
+}
+
+.tile {
+  position: relative;
+  width: var(--tile-size);
+  height: var(--tile-size);
+}
+
+.tile--light {
+  background-color: var(--light-tile);
+}
+
+.tile--dark {
+  background-color: var(--dark-tile);
+}
+
+/* Highlight available legal moves */
+.highlight::after {
+  display: block;
+  position: absolute;
+  content: '';
+  width: calc(0.5 * var(--tile-size));
+  height: calc(0.5 * var(--tile-size));
+  background: var(--highlight);
+  border-radius: 50%;
+  left: 25%;
+  top: 25%;
+}
+
+/* Highlight if move captures a piece */
+.attacking::after {
+  display: block;
+  position: absolute;
+  content: '';
+  border: 6px solid var(--highlight);
+  width: calc(var(--tile-size) - 12px);
+  height: calc(var(--tile-size) - 12px);
+  border-radius: 50%;
+  left: 0;
+  top: 0;
+}
+
+.king-in-check {
+  outline: 3px solid red;
+  outline-offset: -2px;
+  box-sizing: border-box;
+}
